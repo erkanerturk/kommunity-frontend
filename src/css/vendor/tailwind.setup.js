@@ -372,6 +372,7 @@ module.exports = {
   borderRadius: {
     none: '0',
     default: '.25rem', // 4px
+    md: '0.75rem', // 12px
     lg: '1.5rem', // 24px
     full: '9999px',
   },
@@ -398,8 +399,10 @@ module.exports = {
   */
 
   width: {
+    '4': '1rem',
     '6': '1.5rem',
     '8': '2rem',
+    '10': '2.5rem',
     '12': '3rem',
     '16': '4rem',
     '48': '8rem',
@@ -440,6 +443,7 @@ module.exports = {
   */
 
   height: {
+    '4': '1rem',
     '6': '1.5rem',
     '8': '2rem',
     '12': '3rem',
@@ -671,6 +675,7 @@ module.exports = {
     0: '0',
     20: '0.2',
     40: '0.4',
+    50: '0.5',
     60: '0.6',
     80: '0.8',
     100: '1.0',
