@@ -3,40 +3,21 @@ import PropTypes from 'prop-types';
 import cls from 'classnames';
 
 const style = {
-  container: {
-    active: 'bg-primary flex-row-reverse',
-    common: 'inline-flex flex-column items-center w-10 h-6 p-1 rounded-md mr-2',
-    deactive: 'bg-lightBlueGrey',
-    disabled: 'bg-lightBlueGrey opacity-50',
-  },
-  label: {
-    common: 'border-white cursor-pointer bg-white rounded-full w-4 h-4',
-    disabled: 'cursor-not-allowed',
-  },
-  switch: {
-    common: 'hidden',
-  },
-  text: {
-    display: '',
-    hide: 'hidden',
-  },
+  container: 'inline-flex flex-column items-center w-10 h-6 p-1 rounded-md mr-2',
+  label: 'border-white cursor-pointer bg-white rounded-full w-4 h-4',
 };
 
 class Switch extends React.Component {
   state = {
-    status: 'deactive',
+    enabled: false,
   };
 
   handleClick = () => {
-    const { status } = this.state;
-
-    if (status === 'active') {
+    const { enabled } = this.state;
+    const { disabled } = this.props;
+    if (!disabled) {
       this.setState({
-        status: 'deactive',
-      });
-    } else if (status === 'deactive') {
-      this.setState({
-        status: 'active',
+        enabled: !enabled,
       });
     }
     if (this.props.onClick) {
@@ -44,52 +25,41 @@ class Switch extends React.Component {
     }
   }
 
-  titleCase = (txt) => {
-    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-  }
-
-  componentDidMount() {
-    if (this.props.disabled) {
-      this.setState({
-        status: 'disabled',
-      });
-    }
-  }
-
   render() {
-    const { status } = this.state;
+    const { enabled } = this.state;
     const {
-      extraClassname, name, disabled, text,
+      extraClassname, name, disabled, displayText,
     } = this.props;
-    const title = this.titleCase(status);
     return (
-      <div className={extraClassname}>
-        <div className={cls(style.container[status], style.container.common)}>
+      <div className={cls('flex', 'items-center', extraClassname)}>
+        <div className={cls(style.container,
+          enabled ? 'bg-primary flex-row-reverse' : 'bg-lightBlueGrey',
+          disabled && 'opacity-50')}>
           <input
-          className={(style.switch[status], style.switch.common)}
+          className={'hidden'}
           onClick={!disabled ? this.handleClick : undefined}
           type="checkbox"
           name={name}
           id={name}
           />
-          <label className={cls(style.label[status], style.label.common)} htmlFor={name}></label>
+          <label className={cls(style.label, disabled && 'cursor-not-allowed')} htmlFor={name}></label>
         </div>
-        <label className={cls(style.text[text])} htmlFor={name}>{title}</label>
+        <label className={cls('text-dark', !displayText && 'hidden')} htmlFor={name}>{name}</label>
       </div>
     );
   }
 }
 Switch.defaultProps = {
   disabled: false,
-  text: 'hide',
+  displayText: false,
 };
 
 Switch.propTypes = {
   disabled: PropTypes.bool,
+  displayText: PropTypes.bool,
   extraClassname: PropTypes.string,
-  name: PropTypes.string,
+  name: PropTypes.string.isRequired,
   onClick: PropTypes.func,
-  text: PropTypes.oneOf(['display', 'hide']),
 };
 
 export default Switch;
