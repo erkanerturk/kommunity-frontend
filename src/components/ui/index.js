@@ -9,6 +9,7 @@ import TextArea from './text-area';
 import Title from './title';
 import Input from './input';
 import Switch from './switch';
+import Notification from './notification';
 
 export {
   Avatar,
@@ -16,10 +17,11 @@ export {
   ButtonGroup,
   Card,
   Icon,
-  Paragraph,
+  Input,
   Link,
+  Notification,
+  Paragraph,
+  Switch,
   TextArea,
   Title,
-  Input,
-  Switch,
 };
