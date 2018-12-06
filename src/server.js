@@ -14,8 +14,8 @@ import i18nextMiddleware from 'i18next-express-middleware';
 import App from '@/components/app';
 import setupStore from '@/state/store';
 
-import { getDataFromTree, ApolloProvider } from 'react-apollo';
-import client from '@/apollo';
+import { ApolloProvider } from 'react-apollo';
+import client from '@/api/apollo';
 
 let assets;
 if (process.env.RAZZLE_ASSETS_MANIFEST) {
@@ -48,13 +48,6 @@ server.get('/*', async (req, res) => {
     </ApolloProvider>
   );
 
-  try {
-    await getDataFromTree(<Root />);
-  } catch (e) {
-    // eslint-disable-next-line no-console
-    console.log(e);
-  }
-  const initialApolloState = client.extract();
   const markup = renderToString(<Root />);
 
   // Grab the initial state from our Redux store
@@ -99,11 +92,6 @@ server.get('/*', async (req, res) => {
     <script>
       window.__PRELOADED_STATE__ = ${serialize(finalState)}
     </script>
-    <script>
-      window.__APOLLO_STATE__ = ${JSON.stringify(initialApolloState)
-    .replace(/</g, '\\u003c')}
-    </script>
-
 </body>
 </html>`,
     );

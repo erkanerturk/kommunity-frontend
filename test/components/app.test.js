@@ -5,6 +5,8 @@ import { mount } from 'enzyme';
 import { createMemoryHistory } from 'history';
 import setupStore from '@/state/store';
 import App from '@/components/app';
+import { ApolloProvider } from 'react-apollo';
+import client from '@/api/apollo';
 
 describe('Components: <App />', () => {
   test('renders without exploding', () => {
@@ -12,11 +14,13 @@ describe('Components: <App />', () => {
     const store = setupStore(history, {});
 
     const wrapper = mount(
-      <Provider store={store}>
-        <MemoryRouter>
-          <App/>
-        </MemoryRouter>
-      </Provider>,
+      <ApolloProvider client={client}>
+        <Provider store={store}>
+          <MemoryRouter>
+            <App/>
+          </MemoryRouter>
+        </Provider>
+      </ApolloProvider>,
     );
     expect(wrapper.html()).toContain('header');
   });

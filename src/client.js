@@ -9,7 +9,7 @@ import App from '@/components/app';
 import setupStore from '@/state/store';
 
 import { ApolloProvider } from 'react-apollo';
-import client from '@/apollo';
+import client from '@/api/apollo';
 
 const history = createBrowserHistory();
 // eslint-disable-next-line no-underscore-dangle

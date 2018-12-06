@@ -11,8 +11,11 @@ import HomeHero from './home/hero';
 // will be deleted
 const TEST_GQL = gql`
       {
-        rates(currency: "USD") {
-          currency
+        allPersons {
+          name 
+          films {
+            director
+          }
         }
       }
     `;
@@ -22,11 +25,9 @@ const TestComp = () => (
     {({ loading, error, data }) => {
       if (loading) return 'Loading...';
       if (error) return `Error! ${error.message}`;
-      // eslint-disable-next-line no-console
-      console.log(data);
       return (
         <p>
-          TestComp
+          Person: {data.allPersons[0].name}
         </p>
       );
     }}
