@@ -8,27 +8,34 @@ import { ConnectedRouter } from 'connected-react-router';
 import App from '@/components/app';
 import setupStore from '@/state/store';
 
+import { ApolloProvider } from 'react-apollo';
+import client from '@/apollo';
+
 const history = createBrowserHistory();
 // eslint-disable-next-line no-underscore-dangle
 const store = setupStore(history, window.__PRELOADED_STATE__);
 
 hydrate(
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <App />
-    </ConnectedRouter>
-  </Provider>,
+  <ApolloProvider client={client}>
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <App />
+      </ConnectedRouter>
+    </Provider>
+  </ApolloProvider>,
   document.getElementById('root'),
 );
 
 if (module.hot) {
   module.hot.accept('./components/app', () => {
     hydrate(
-      <Provider store={store}>
-        <ConnectedRouter history={history}>
-          <App />
-        </ConnectedRouter>
-      </Provider>,
+      <ApolloProvider client={client}>
+        <Provider store={store}>
+          <ConnectedRouter history={history}>
+            <App />
+          </ConnectedRouter>
+        </Provider>
+      </ApolloProvider>,
       document.getElementById('root'),
     );
   });
