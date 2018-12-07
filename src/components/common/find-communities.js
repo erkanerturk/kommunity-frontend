@@ -58,7 +58,7 @@ class FindCommunities extends React.Component {
           <Title extraClassName="text-center" type="h5">Find Communities!</Title>
           <Input
             extraWrapperClassName="w-6/12 mt-4 inline-block"
-            extraClassName="rounded-lg"
+            extraClassName="rounded-24"
             onChange={this.handleChange}
             placeholder="Search for existing communities, type in your keyword"
             value={searchValue}

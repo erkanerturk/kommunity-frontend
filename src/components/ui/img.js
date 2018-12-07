@@ -4,9 +4,9 @@ import LazyLoad from 'react-lazyload';
 
 const UIImage = (props) => {
   const {
-    src, alt, lazy, height, className,
+    src, alt, lazy, height, extraClassName, extraStyle,
   } = props;
-  const Image = () => <img src={src} alt={alt} className={className}/>;
+  const Image = () => <img src={src} alt={alt} className={extraClassName} style={extraStyle} />;
   return (
     lazy
       ? <LazyLoad height={height}><Image/></LazyLoad>
@@ -19,7 +19,8 @@ UIImage.defaultProps = {
 
 UIImage.propTypes = {
   alt: PropTypes.string,
-  className: PropTypes.string,
+  extraClassName: PropTypes.string,
+  extraStyle: PropTypes.string,
   height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   lazy: PropTypes.bool,
   src: PropTypes.string,

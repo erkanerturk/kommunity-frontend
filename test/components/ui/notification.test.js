@@ -25,9 +25,14 @@ describe('UI Component: <Notification />', () => {
   test('is dismissable', () => {
     wrapper.setProps({ dismissable: true });
 
-    expect(wrapper.find('Icon').filterWhere((item) => {
+    const closer = wrapper.find('Icon').filterWhere((item) => {
       return item.prop('name') === 'X';
-    })).toHaveLength(1);
+    });
+
+    expect(closer).toHaveLength(1);
+
+    closer.simulate('click');
+    expect(wrapper.html()).toEqual(null);
   });
 });
 

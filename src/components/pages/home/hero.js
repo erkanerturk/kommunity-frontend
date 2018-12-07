@@ -1,18 +1,17 @@
 import React from 'react';
-import { Title, Paragraph } from '@/components/ui';
+import { Button, Title } from '@/components/ui';
 
 const HomeHero = () => (
-  <div className="flex py-6 px-4">
-    <div className="self-center">
-      <Title type="h3">
-        Join, start and build online communities!
-      </Title>
-      <Paragraph extraClassName="mt-4">
-        All your communities, apps, and contacts in one big platform.
-      </Paragraph>
-    </div>
+  <div className="text-center">
+    <Title type="h2" extraClassName="mb-4">
+      Join, Start and Create Online Communities
+    </Title>
+    <Title type="h5" extraClassName="mb-18">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    </Title>
     <div>
-      <img alt="hero" src="https://via.placeholder.com/500x300" />
+      <Button extraClassName="mr-6" label="Create Community" size="large" styleType="primary"/>
+      <Button label="Discover Communities" size="large" styleType="outline"/>
     </div>
   </div>
 );

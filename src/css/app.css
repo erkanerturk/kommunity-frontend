@@ -1,2 +1,23 @@
 @import "./font.css";
 @import "./vendor/tailwind_output.css";
+@import "./vendor/slick-carousel.css";
+
+.apost:before {
+    content: "\201C";
+    font-family: sans-serif;
+    position: absolute;
+    top: 0;
+    left: -24px;
+    font-size: 120px;
+    opacity: 0.2;
+}
+
+.apost:after {
+    content: "\201D";
+    font-family: sans-serif;
+    position: absolute;
+    bottom: -24px;
+    right: -24px;
+    font-size: 120px;
+    opacity: 0.2;
+}

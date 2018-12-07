@@ -3,9 +3,7 @@ import { shallow } from 'enzyme';
 import { Avatar } from '@/components/ui';
 
 describe('UI Component: <Avatar />', () => {
-  const wrapper = shallow(
-    <Avatar />,
-  );
+  const wrapper = shallow(<Avatar />);
 
   test('renders all sizes correctly', () => {
     wrapper.setProps({ size: 'xs' });
@@ -22,7 +20,12 @@ describe('UI Component: <Avatar />', () => {
 
   test('renders given letters correctly', () => {
     wrapper.setProps({ letters: 'AB' });
-    expect(wrapper.find('p').children().text()).toEqual('AB');
+    expect(
+      wrapper
+        .find('p')
+        .children()
+        .text(),
+    ).toEqual('AB');
   });
 
   test('renders given image correctly', () => {

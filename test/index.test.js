@@ -1,8 +1,12 @@
 import http from 'http';
-import server from '@/index';
+import app from '@/server';
+
+const server = http.createServer(app);
+const port = 5000;
+server.listen(5000);
 
 test('server - returns 200', (done) => {
-  http.get('http://localhost:3000', (res) => {
+  http.get(`http://localhost:${port}`, (res) => {
     expect(res.statusCode).toBe(200);
 
     let response = '';

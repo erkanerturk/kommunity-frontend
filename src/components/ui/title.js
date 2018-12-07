@@ -1,3 +1,4 @@
+import cls from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -13,7 +14,7 @@ const style = {
 const Title = (props) => {
   const { type: HeaderType } = props;
   return (
-    <HeaderType className={style[HeaderType]}>
+    <HeaderType className={cls(props.extraClassName, style[HeaderType])}>
       {props.children}
     </HeaderType>
   );
@@ -21,6 +22,7 @@ const Title = (props) => {
 
 Title.propTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  extraClassName: PropTypes.string,
   type: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']).isRequired,
 };
 

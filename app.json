@@ -1,0 +1,9 @@
+{
+  "name": "kommunity-frontend",
+
+  "env": {
+    "NODE_ENV": "staging"
+  },
+  "image": "heroku/nodejs",
+  "stack": "container"
+}

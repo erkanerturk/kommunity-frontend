@@ -4,16 +4,16 @@ import cls from 'classnames';
 
 const style = {
   common:
-    'ui-input inline-block border border-lightBlueGrey w-full px-4 rounded bg-white leading-2xl text-base focus:text-dark focus:bg-white focus:border-primary focus:border-2 focus:outline-none disabled:bg-paleGrey',
+    'ui-input inline-block border border-lightBlueGrey w-full px-4 rounded-4 bg-white leading-2xl text-base focus:text-dark focus:bg-white focus:border-primary focus:shadow-input-primary focus:outline-none disabled:bg-paleGrey',
   errorText: 'error-text text-red my-2 leading-base',
   helpText: 'help-text text-blueyGrey leading-base',
-  icon: 'h-12 w-12 leading-base absolute inline-flex items-center justify-center',
+  icon: 'h-full w-12 leading-base absolute inline-flex items-center justify-center',
   iconLeft: 'icon-left pin-l',
   iconRight: 'icon-right pin-r',
   label: 'label text-dark block leading-base font-normal',
   state: {
     default: 'text-blueyGrey',
-    error: 'text-dark border-red focus:border-red',
+    error: 'text-dark border-red focus:border-red focus:shadow-input-red',
     hasIconLeft: 'pl-12',
     hasIconRight: 'pr-12',
   },

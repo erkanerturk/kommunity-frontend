@@ -19,9 +19,9 @@
     "describe": true,
     "test": true,
     "expect": true,
-    "beforeAll": true, 
-    "beforeEach": true, 
-    "afterAll": true, 
+    "beforeAll": true,
+    "beforeEach": true,
+    "afterAll": true,
     "afterEach": true
   },
   "settings": {

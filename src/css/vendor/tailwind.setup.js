@@ -55,7 +55,7 @@ const colors = {
   battleshipGrey:'#637381',
   blueyGrey: '#919EAB',
   lightBlueGrey: '#C4CDD5',
-  paleBlue: '#F4F6F8',
+  paleBlue: '#DFE3E8',
   paleGrey: '#F4F6F8',
   white: '#FFFFFF',
   green: '#19A560',
@@ -371,9 +371,10 @@ module.exports = {
 
   borderRadius: {
     none: '0',
-    default: '.25rem', // 4px
-    md: '0.75rem', // 12px
-    lg: '1.5rem', // 24px
+    '4': '4px',
+    '8': '8px',
+    '12': '12px',
+    '24': '24px',
     full: '9999px',
   },
 
@@ -399,12 +400,15 @@ module.exports = {
   */
 
   width: {
+    '2': '0.5rem',
     '4': '1rem',
     '6': '1.5rem',
     '8': '2rem',
     '10': '2.5rem',
     '12': '3rem',
     '16': '4rem',
+    '18': '4.5rem',
+    '20': '5rem',
     '48': '8rem',
     '1/4': '25%',
     '2/4': '50%',
@@ -443,11 +447,14 @@ module.exports = {
   */
 
   height: {
+    '2': '0.5rem',
     '4': '1rem',
     '6': '1.5rem',
     '8': '2rem',
     '12': '3rem',
     '16': '4rem',
+    '18': '4.5rem',
+    '20': '5rem',
     '48': '8rem',
     auto: 'auto',
     full: '100%',
@@ -556,6 +563,7 @@ module.exports = {
     10: '2.5rem',
     12: '3rem',
     16: '4rem',
+    18: '4.5rem',
     20: '5rem',
     24: '6rem',
     32: '8rem',
@@ -589,7 +597,9 @@ module.exports = {
     8: '2rem',
     10: '2.5rem',
     12: '3rem',
+    14: '3.5rem',
     16: '4rem',
+    18: '4.5rem',
     20: '5rem',
     24: '6rem',
     32: '8rem',
@@ -636,6 +646,8 @@ module.exports = {
     lg: '0 6px 8px 0 rgba(23,43,77,0.24)',
     xl: ' 0 20px 28px 0 rgba(23,43,77,0.24)',
     none: 'none',
+    'input-primary': 'inset 0 0 0 1px '+colors.primary,
+    'input-red': 'inset 0 0 0 1px '+colors.red
   },
 
 
@@ -760,7 +772,7 @@ module.exports = {
     height: ['responsive'],
     leading: [],
     lists: [],
-    margin: ['responsive'],
+    margin: ['responsive', 'last-child'],
     maxHeight: [],
     maxWidth: [],
     minHeight: [],
@@ -773,7 +785,7 @@ module.exports = {
     pointerEvents: [],
     position: ['responsive'],
     resize: [],
-    shadows: [],
+    shadows: ['focus'],
     svgFill: [],
     svgStroke: [],
     tableLayout: false,

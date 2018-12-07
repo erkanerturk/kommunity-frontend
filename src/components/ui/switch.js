@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cls from 'classnames';
 
 const style = {
-  container: 'inline-flex flex-column items-center w-10 h-6 p-1 rounded-md mr-2',
+  container: 'inline-flex flex-column items-center w-10 h-6 p-1 rounded-12 mr-2',
   label: 'border-white cursor-pointer bg-white rounded-full w-4 h-4',
 };
 

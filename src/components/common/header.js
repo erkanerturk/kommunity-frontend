@@ -11,8 +11,9 @@ const Header = () => {
         <div className="font-bold">kommunity.app</div>
       </Link>
       <div className="flex flex-grow">
-        <Link extraClassName={linkCls} to="/features">Features</Link>
         <Link extraClassName={linkCls} to="/communities">Communities</Link>
+        <Link extraClassName={linkCls} to="/features">Features</Link>
+        <Link extraClassName={linkCls} to="/features">Pricing</Link>
       </div>
       <div className="flex items-center">
         <div className="mr-4">

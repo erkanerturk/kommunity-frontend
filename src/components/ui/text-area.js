@@ -4,7 +4,7 @@ import cls from 'classnames';
 
 const style = {
   common:
-    'ui-textarea inline-block border border-lgray w-full px-4 rounded bg-white leading-2xl text-base focus:text-black focus:bg-white focus:border-blue focus:border-2 focus:outline-none disabled:bg-xlgray',
+    'ui-textarea inline-block border border-lgray w-full px-4 rounded-4 bg-white leading-2xl text-base focus:text-black focus:bg-white focus:border-blue focus:border-2 focus:outline-none disabled:bg-xlgray',
   errorText: 'error-text text-red my-2 leading-base',
   helpText: 'help-text text-gray leading-base',
   label: 'label text-black block leading-base font-normal',
