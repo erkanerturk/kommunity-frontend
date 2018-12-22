@@ -8,6 +8,7 @@ import MemberProfile from '@/containers/pages/member-profile';
 import CommunityDiscover from '@/containers/pages/community-discover';
 import CommunityList from '@/containers/pages/communities';
 import CommunitySettings from '@/containers/pages/community-settings';
+import CommunityMembers from '@/containers/pages/community-members';
 import Error404 from '@/containers/pages/404';
 import ResetPassword from '@/components/pages/reset-password';
 import '@/css';
@@ -22,6 +23,7 @@ const App = () => (
     <Route exact path="/communities" component={CommunityList} />
     <Route exact path="/community/:communityUuid" component={CommunityDiscover} />
     <Route exact path="/community/:communityUuid/settings" component={CommunitySettings} />
+    <Route exact path="/community/:communityUuid/members" component={CommunityMembers} />
     <Route component={Error404} />
   </Switch>
 );

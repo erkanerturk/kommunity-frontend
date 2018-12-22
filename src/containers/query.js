@@ -26,3 +26,16 @@ export const NAVBAR_SEARCH = queryText => gql`
     }
   }
 `;
+
+export const COMMUNITY_MEMBERS = gql`
+  query GetCommunityMembers ($uuid: ID!) {
+    getCommunityMembers (uuid: $uuid) {
+      uuid
+      name
+      Users {
+        firstName
+        lastName
+      }
+    }
+  }
+`;
