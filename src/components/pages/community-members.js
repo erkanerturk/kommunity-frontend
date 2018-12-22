@@ -1,17 +1,20 @@
 import React from 'react';
-import { Title, Icon, Paragraph, Button } from '@/components/ui';
+import { Title, Icon, Card, Button, Paragraph } from '@/components/ui';
 
 class CommunityMembers extends React.Component {
   constructor(props) {
     super(props);
   }
   handleClickInvite () {
-    //TODO: 
+    //TODO: get users using gql and list 
+  }
+
+  handleClickEdit () {
+    //TODO: edit role and status. mutate using gql
   }
 
   render() {
     const { name, uuid, Users } = this.props.communityMembers;
-    console.log(Users);
     return (
       <div className="container text-center">
         <div className="container py-4">
@@ -22,29 +25,27 @@ class CommunityMembers extends React.Component {
           <Button
           label="Invite Members"
           size="small"
-          styleType="secondary"
+          styleType="outline"
           onClick={this.handleClickInvite}
-          extraClassName="m-4"
-          />
-          <Title type="h5">Community Userslist</Title>
-
-          {
-            // TODO: Icon component crashes!
-            // <div className="mr-6">
-            //  <Icon name="edit-3" className="text-primary" />
-            // </div> 
-          }
+          extraClassName="m-4" />
+          <Title type="h5">Community Userlist</Title>
+          <div className="flex flex-wrap justify-center w-full">
           
-          <div className="p-2">
-            <ul className="list-reset">
+          <Card shadow="lg" applyPadding={false}>
+
+            <ul className="list-reset p-4">
               {Users.map( ({ firstName, lastName }, index) => (
-                <div key={index.toString()} className="py-2">
-                  <li>
-                    <b>User:</b> {`${firstName} ${lastName}`}
+                  <li key={index.toString()} className="flex items-center p-1 hover:bg-paleGrey">
+                    <Paragraph className="inline">{firstName} {lastName}</Paragraph>
+                    <Icon 
+                    onClick={this.handleClickEdit}
+                    name="Edit"
+                    className="text-primary ml-3 hover:text-primaryDark" />
                   </li>
-                </div>
               ))}
             </ul>
+
+          </Card>
           </div>
 
         </div>
