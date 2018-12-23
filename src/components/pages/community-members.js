@@ -1,27 +1,71 @@
 import React from 'react';
 import { Title, Icon, Card, Button, Paragraph } from '@/components/ui';
 
-class CommunityMembers extends React.Component {
-  constructor(props) {
-    super(props);
+
+class User extends React.Component {
+  state = {
+    editMode: false
   }
+  handleClickEdit = () => {
+    //TODO: edit role and status. mutate using gql
+    const { editMode } = this.state;
+    this.setState({
+      editMode: !editMode
+    });
+  }
+
+  render () {
+    const { firstName, lastName } = this.props.user;
+    const { editMode } = this.state;
+    return (
+      <li className="flex items-center p-1 hover:bg-paleGrey">
+        <Paragraph className="inline">{firstName} {lastName}</Paragraph>
+        <Icon 
+        onClick={this.handleClickEdit}
+        name="Edit"
+        className="text-primary ml-3 hover:text-primaryDark" />
+        {
+          editMode
+          &&
+          <div>
+            <Button
+            label="Edit Role"
+            size="small"
+            styleType="plain"
+            onClick={this.handleClickRole} />
+            <Button
+            label="Edit Status"
+            size="small"
+            styleType="plain"
+            onClick={this.handleClickStatus} />
+            <Button
+            label="Remove Member"
+            size="small"
+            styleType="plain"
+            onClick={this.handleClickRemove} />
+          </div>
+        }
+      </li>
+    )
+  }
+}
+
+
+class CommunityMembers extends React.Component {
   handleClickInvite () {
     //TODO: get users using gql and list 
   }
 
-  handleClickEdit () {
-    //TODO: edit role and status. mutate using gql
-  }
 
   render() {
-    const { name, uuid, Users } = this.props.communityMembers;
+    const { name, Users } = this.props.communityMembers;
     return (
       <div className="container text-center">
         <div className="container py-4">
           <Title type="h2">Community Members Page</Title>
         </div>
         <div className="container py-4">
-          <Title type="h5">Community Name: {name}</Title>
+          <Paragraph>Community Name: {name}</Paragraph>
           <Button
           label="Invite Members"
           size="small"
@@ -34,14 +78,8 @@ class CommunityMembers extends React.Component {
           <Card shadow="lg" applyPadding={false}>
 
             <ul className="list-reset p-4">
-              {Users.map( ({ firstName, lastName }, index) => (
-                  <li key={index.toString()} className="flex items-center p-1 hover:bg-paleGrey">
-                    <Paragraph className="inline">{firstName} {lastName}</Paragraph>
-                    <Icon 
-                    onClick={this.handleClickEdit}
-                    name="Edit"
-                    className="text-primary ml-3 hover:text-primaryDark" />
-                  </li>
+              {Users.map((user, index) => (
+                  <User user={user} key={index.toString()}/>
               ))}
             </ul>
 
