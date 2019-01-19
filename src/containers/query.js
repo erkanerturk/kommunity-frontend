@@ -26,3 +26,16 @@ export const NAVBAR_SEARCH = queryText => gql`
     }
   }
 `;
+
+export const FETCH_MOST_ACTIVE_USERS = gql`
+  query getMostActiveMembers($communityUuid: ID) {
+    mostActiveMembers(communityUuid: $communityUuid) {
+      firstName
+      lastName
+      uuid
+      avatarUploadUuid
+      lastSeenAt
+      location
+    }
+  }
+`;

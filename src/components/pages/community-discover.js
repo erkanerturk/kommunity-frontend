@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '@/components/common/header';
 import Footer from '@/components/common/footer';
+import MostActiveMembers from '@/components/common/most-active-members';
 
 const CommunityDiscover = () => {
   return (
@@ -15,7 +16,7 @@ const CommunityDiscover = () => {
             </div>
             <div className="w-6/12">
               <h1>Most Active Members</h1>
-              <div>...</div>
+              <MostActiveMembers />
             </div>
             <div className="w-6/12">
               <h1>Online Members</h1>

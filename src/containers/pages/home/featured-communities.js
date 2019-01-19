@@ -8,7 +8,11 @@ const FeaturedCommunitiesContainer = () => (
   <Query query={POPULAR_COMMUNITIES}>
     {({ loading, error, data }) => {
       if (loading) {
-        return <Loading />;
+        return (
+          <div className="text-center my-3">
+            <Loading />
+          </div>
+        );
       }
       // TODO style error message
       if (error) {

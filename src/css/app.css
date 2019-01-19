@@ -39,13 +39,13 @@
     75%  { margin-top: -4.5rem; }
     100% { margin-top: 0; }
 */
-@keyframes city-move { 
+@keyframes city-move {
     0% { margin-top: 0; }
     33.33% { margin-top: -1.5rem; }
     66.66% { margin-top: -3rem; }
     100% { margin-top: 0; }
 }
-/*  
+/*
     Fade:
     controls the fading of a city title.
     to change the speed of fading, you can tweak the first and last lines' second values.
@@ -54,4 +54,18 @@
     0%, 20% { opacity: 1; }
     50% { opacity: 0; }
     80%, 100% { opacity: 1; }
+}
+
+@-webkit-keyframes shake {
+    from {
+        -webkit-transform: rotate(10deg);
+    }
+    to {
+        -webkit-transform-origin:center center;
+        -webkit-transform: rotate(-10deg);
+    }
+}
+
+.shake {    
+    -webkit-animation: shake 0.2s ease-in-out 0.2s  alternate;
 }

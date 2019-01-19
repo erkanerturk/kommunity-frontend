@@ -7,6 +7,7 @@ describe('UI Component: <TextArea />', () => {
   const onChangeSpy = sinon.spy();
   const wrapper = shallow(
     <TextArea
+      id="id"
       extraClassName="w-6/12 mt-4 rounded-lg"
       placeholder="Search for existing communities, type in your keyword"
       onChange={onChangeSpy}

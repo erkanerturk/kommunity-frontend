@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link, Input, Paragraph, Icon } from '@/components/ui';
+import { Link, Paragraph } from '@/components/ui';
 import Logo from '@/components/common/logo';
+import MailSignup from '@/components/vendor/mail-signup';
 
 const classes = {
   caption: 'leading-base text-blueyGrey text-xs mb-6 uppercase tracking-tight',
@@ -80,18 +81,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="w-1/4 mr-auto">
-          <Paragraph className={classes.caption}>Newsletter</Paragraph>
-          <Paragraph>Subscribe to our updates</Paragraph>
-          {/* TODO: bariscc - make input type subscribe and implement subscribe function */}
-          <Input
-            extraClassName="w-full block"
-            name="email"
-            type="email"
-            id="subscribe-email"
-            placeholder="Your mail adress"
-            iconRight={<Icon name="Send" className="text-primary cursor-pointer" />}
-            extraWrapperClassName="my-4"
-          />
+          <MailSignup />
         </div>
       </div>
       <div className="flex justify-between border-t py-10 border-pale-blue w-10/12 mx-auto">

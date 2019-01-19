@@ -21,11 +21,13 @@ class NBSearch extends React.Component {
   }
 
   componentDidMount() {
-    document.addEventListener('mousedown', this.handleClickOutside);
+    document.addEventListener('mousedown', this.handleClickOrFocusOutside);
+    document.addEventListener('focusin', this.handleClickOrFocusOutside);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleClickOutside);
+    document.removeEventListener('mousedown', this.handleClickOrFocusOutside);
+    document.removeEventListener('focusin', this.handleClickOrFocusOutside);
   }
 
   classes = () => {
@@ -49,7 +51,7 @@ class NBSearch extends React.Component {
     };
   };
 
-  handleClickOutside = event => {
+  handleClickOrFocusOutside = event => {
     const { expandInput, shrinkInput, isSearchExpanded } = this.props;
     const isInputClicked = this.inputRef.current && this.inputRef.current.contains(event.target);
     const isInputWrapperClicked =

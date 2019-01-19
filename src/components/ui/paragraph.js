@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cls from 'classnames';
 
 const style = {
+  '2xl': 'text-2xl leading-lg',
   base: 'text-base leading-base',
   lg: 'text-lg leading-lg',
   sm: 'text-sm leading-sm',

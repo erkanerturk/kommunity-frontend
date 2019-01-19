@@ -22,6 +22,7 @@ if (process.env.RAZZLE_ASSETS_MANIFEST) {
   // eslint-disable-next-line
   assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 }
+
 const publicDir = process.env.RAZZLE_PUBLIC_DIR || 'public';
 
 const server = express();

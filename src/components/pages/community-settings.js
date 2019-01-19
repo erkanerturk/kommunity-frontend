@@ -93,7 +93,7 @@ class CommunitySettings extends React.Component {
                     id="description"
                     label="Community Description"
                     /* eslint-disable-next-line */
-                      placeholder="Describe your community with a few sentences. For example, what is the purpose and goal of your community? Who are you looking to connect for?"
+                    placeholder="Describe your community with a few sentences. For example, what is the purpose and goal of your community? Who are you looking to connect for?"
                     name="name"
                     value={description}
                     onChange={this.handleInputChange}
