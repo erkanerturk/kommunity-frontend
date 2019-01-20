@@ -5,7 +5,7 @@ import cls from 'classnames';
 import { Icon } from './index';
 
 const style = {
-  card: 'absolute mt-2 border-blueyGrey bg-white p-1 rounded-4 shadow-md pin-x',
+  card: 'absolute mt-2 border-blueyGrey bg-white p-1 rounded-4 shadow-md pin-x z-10',
   disabled: 'text-blueyGrey hover:text-blueyGrey cursor-not-allowed',
   icon: 'ml-2 text-battleshipGrey',
   item: 'px-3 py-2 hover:bg-paleGrey cursor-pointer',
